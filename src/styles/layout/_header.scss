@@ -8,10 +8,26 @@
   }
 
   &__title {
+    color: black;
     font-size: 1.5rem;
+    font-weight: 800;
+    text-decoration: none;
+
+    &:hover {
+      opacity: .7;
+    }
   }
 
   &__mode {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
     font-weight: 600;
+    cursor: pointer;
+
+    span {
+      display: flex;
+      font-size: 1.125rem;
+    }
   }
 }

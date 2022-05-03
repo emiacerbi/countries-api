@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import { Loading } from './Loading'
 
 export const DetailScreen = () => {
 
@@ -26,7 +27,7 @@ export const DetailScreen = () => {
   return (
     <div className='container'>
       {
-        isLoading && <h2>Cargando...</h2>
+        isLoading && <Loading />
       }
       {
         data

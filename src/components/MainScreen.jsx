@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { AiOutlineSearch } from "react-icons/ai";
-
+import { Loading } from './Loading';
 
 export const MainScreen = () => {
 
@@ -42,7 +42,7 @@ export const MainScreen = () => {
       <div className='main__search flex ai-center'>
         <form onSubmit={handleSubmit} className='main__search__bar' >
           <span><AiOutlineSearch /></span>
-          <input className='main__search__bar__input' name='keyword' placeholder='Search for a country...' />
+          <input className='main__search__bar__input' name='keyword' placeholder='Search for a country...' autoComplete='off' />
         </form>
 
         <form className='main__search__selection'>
@@ -58,10 +58,10 @@ export const MainScreen = () => {
         </form>
       </div>
 
+      {
+        isLoading && <Loading />
+      }
       <section className='grid main__grid' >
-        {
-          isLoading && <h2>Cargando...</h2>
-        }
         {
           data
             .filter(country => country.region.includes(region))
@@ -71,13 +71,14 @@ export const MainScreen = () => {
                   <img className='main__grid__card__img' src={country.flag} alt='' />
                   <div className='main__grid__card__wrap'>
                     <h3>{country.name}</h3>
-                    <p>Population: {country.population}</p>
+                    <p>Population: {country.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</p>
                     <p>Region: {country.region}</p>
                     <p>Capital: {country.capital}</p>
                   </div>
                 </Link>
               )
             })
+            .slice(0, 32)
         }
 
       </section>

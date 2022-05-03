@@ -1,21 +1,76 @@
 .main {
 
+  margin: 0 auto;
+  padding-block: 2rem;
+
   &__search {
     justify-content: space-between;
     padding-block: 1rem;
+
+    &__bar {
+
+      position: relative;
+
+      &__input {
+        width: 300px;
+        padding-left: 3rem;
+        padding-block: .5rem;
+        border: none;
+        border-radius: .25rem;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+        font-size: 1rem;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      span {
+        position: absolute;
+        top: 58%;
+        left: 20px;
+        transform: translateY(-50%);
+        color: gray;
+      }
+    }
+
+    &__selection {
+      padding: .5rem 1rem ;
+      border-radius: .25rem;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+      font-size: 1rem;
+
+      option {
+        border: none;
+        outline: none;
+        font-weight: bold;
+      }
+
+      &__input {
+        padding-right: 2rem;
+        border: none;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
   }
 
   &__grid {
-    grid-template-columns: repeat(4, 200px);
+    grid-template-columns: repeat(4, 1fr);
     justify-content: space-between;
-    padding: 2rem 0;
+    padding-block: 2rem;
     gap: 1rem;
 
     &__card {
       grid-column: span 1;
-      max-width: 265px;
+      min-width: 265px;
       overflow: hidden;
       border-radius: .5rem;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+      color: black;
+      text-decoration: none;
 
       &__img {
         width: 100%;

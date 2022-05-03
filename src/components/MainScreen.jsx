@@ -1,5 +1,8 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+
+import { AiOutlineSearch } from "react-icons/ai";
 
 
 export const MainScreen = () => {
@@ -8,12 +11,11 @@ export const MainScreen = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [keyword, setKeyword] = useState('')
   const [region, setRegion] = useState('')
+  const [error, setError] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault()
     setKeyword(e.target.keyword.value)
-    // navigate(`resultados?keyword=${keyword}`)
-    console.log(keyword)
     e.target.keyword.value = ""
   }
 
@@ -22,7 +24,7 @@ export const MainScreen = () => {
     console.log(e.target.value)
   }
 
-  const endPoint = !keyword ?
+  let endPoint = !keyword ?
     'https://restcountries.com/v2/all' :
     `https://restcountries.com/v2/name/${keyword}`
 
@@ -38,14 +40,14 @@ export const MainScreen = () => {
   return (
     <main className='main container'>
       <div className='main__search flex ai-center'>
-        <form onSubmit={handleSubmit}>
-          <input name='keyword' />
-
+        <form onSubmit={handleSubmit} className='main__search__bar' >
+          <span><AiOutlineSearch /></span>
+          <input className='main__search__bar__input' name='keyword' placeholder='Search for a country...' />
         </form>
 
-        <form>
-          <span>Filter by region: </span>
-          <select name='region' onChange={handleChange} >
+        <form className='main__search__selection'>
+          <select className='main__search__selection__input' name='region' onChange={handleChange} placeholder='Filter by region:' >
+            <option value=''>Filter by region:</option>
             <option value='America'>America</option>
             <option value='Oceania'>Oceania</option>
             <option value='Asia'>Asia</option>
@@ -57,7 +59,6 @@ export const MainScreen = () => {
       </div>
 
       <section className='grid main__grid' >
-
         {
           isLoading && <h2>Cargando...</h2>
         }
@@ -66,7 +67,7 @@ export const MainScreen = () => {
             .filter(country => country.region.includes(region))
             .map(country => {
               return (
-                <div className='main__grid__card' key={country.alpha2Code} onClick={() => console.log('test')}>
+                <Link className='main__grid__card' key={country.alpha2Code} to={`/${country.name.toLowerCase()}`} >
                   <img className='main__grid__card__img' src={country.flag} alt='' />
                   <div className='main__grid__card__wrap'>
                     <h3>{country.name}</h3>
@@ -74,14 +75,11 @@ export const MainScreen = () => {
                     <p>Region: {country.region}</p>
                     <p>Capital: {country.capital}</p>
                   </div>
-                </div>
+                </Link>
               )
             })
         }
 
-        {
-          console.log()
-        }
       </section>
 
 

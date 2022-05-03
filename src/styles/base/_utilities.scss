@@ -14,7 +14,7 @@
 .jc-center { justify-content: center }
 
 .container {
-  max-width: 60rem;
+  max-width: 80rem;
   padding-inline: 2rem;
 }
 
@@ -38,5 +38,4 @@
 .letter-spacing-2 { letter-spacing: 2.7px; } 
 .letter-spacing-3 { letter-spacing: 2.35px; } 
 
-.font-body { font-family: $font-body; }
-.font-heading { font-family: $font-headings; }
+.font-main { font-family: $font-main; }

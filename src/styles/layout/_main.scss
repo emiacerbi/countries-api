@@ -1,0 +1,31 @@
+.main {
+
+  &__search {
+    justify-content: space-between;
+    padding-block: 1rem;
+  }
+
+  &__grid {
+    grid-template-columns: repeat(4, 200px);
+    justify-content: space-between;
+    padding: 2rem 0;
+    gap: 1rem;
+
+    &__card {
+      grid-column: span 1;
+      max-width: 265px;
+      overflow: hidden;
+      border-radius: .5rem;
+
+      &__img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+      }
+
+      &__wrap {
+        padding: 1rem;
+      }
+    }
+  }
+}

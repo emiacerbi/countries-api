@@ -1,0 +1,42 @@
+@use '../base/variables' as *;
+
+.flex {
+  display: flex;
+  gap: ($gap, 1rem);
+}
+
+.grid {
+  display: grid;
+  gap: ($gap, 1rem);
+}
+
+.ai-center { align-items: center }
+.jc-center { justify-content: center }
+
+.container {
+  max-width: 60rem;
+  padding-inline: 2rem;
+}
+
+/* Colors */
+
+
+/* Typography */
+
+.fs-900 { font-size: $fs-900 }
+.fs-800 { font-size: $fs-800 }
+.fs-700 { font-size: $fs-700 }
+.fs-600 { font-size: $fs-600 }
+.fs-500 { font-size: $fs-500 }
+.fs-400 { font-size: $fs-400 }
+.fs-300 { font-size: $fs-300 }
+.fs-200 { font-size: $fs-200 }
+
+.uppercase { text-transform: uppercase; }
+
+.letter-spacing-1 { letter-spacing: 4.75px; } 
+.letter-spacing-2 { letter-spacing: 2.7px; } 
+.letter-spacing-3 { letter-spacing: 2.35px; } 
+
+.font-body { font-family: $font-body; }
+.font-heading { font-family: $font-headings; }

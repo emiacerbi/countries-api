@@ -1,0 +1,75 @@
+/* Colors */
+
+/* Dark mode elements */
+$dark-blue100: hsl(209, 23%, 22%);
+$very-dark-blue100: hsl(207, 26%, 17%);
+$dark-blue200: hsl(209, 23%, 22%);
+
+/* Dark Mode Background */
+$very-dark-blue200: hsl(207, 26%, 17%);
+
+/* Light Mode Text */
+$very-dark-blue: hsl(200, 15%, 8%);
+
+/* Light Mode Input */
+$dark-gray: hsl(0, 0%, 52%);
+
+/* Light mode background */
+$very-light-gray: hsl(0, 0%, 98%);
+
+/* Dark mode Text & Light mode Elements */
+$white: hsl(0, 0%, 100%);
+
+/* Fonts */
+$font-headings: 'Barlow Condensed', sans-serif;
+$font-body: 'Barlow', sans-serif;
+
+$breakpoints: (
+    "phone":        400px,
+    "phone-wide":   480px,
+    "phablet":      560px,
+    "tablet-small": 640px,
+    "tablet":       768px,
+    "tablet-wide":  1024px,
+    "desktop":      1248px,
+    "desktop-wide": 1440px
+);
+
+$gap: "1rem";
+
+$fs-200: 0.875rem;
+$fs-300: 1rem;
+$fs-400: 0.9375rem;
+$fs-500: 1.75rem;
+$fs-600: 1rem;
+$fs-700: 1.5rem;
+$fs-800: 3.5rem;
+$fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
+
+$fs-xs: 0.75rem;
+$fs-sm: 0.875rem;
+$fs-base: 1rem;
+$fs-lg: 1.125rem;
+$fs-xl: 1.25rem;
+$fs-2xl: 1.5rem;
+$fs-3xl: 1.875rem;
+$fs-4xl: 2.25rem;
+$fs-5xl: 3rem;
+$fs-6xl: 3.75rem;
+$fs-7xl: 4.5rem;
+$fs-8xl: 6rem;
+$fs-9xl: 8rem;
+
+@media (min-width: '560px') {
+    $fs-400: 1rem;
+    $fs-600: 1.5rem;
+    $fs-700: 2.5rem;
+    $fs-800: 5rem;
+}
+
+@media (min-width: 45rem) {
+    $fs-400: 1.125rem;
+    $fs-600: 2rem;
+    $fs-700: 3.5rem;
+    $fs-800: 6.25rem;
+}

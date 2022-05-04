@@ -5,7 +5,7 @@ import { RiMoonFill } from "react-icons/ri";
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 
-import { switchTheme } from '../newRedux/themeSlice';
+import { switchTheme } from '../store/themeSlice';
 
 export const Header = () => {
 

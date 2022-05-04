@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 import { AiOutlineSearch } from "react-icons/ai";
 import { Loading } from './Loading';
+import { useSelector } from 'react-redux';
 
 export const MainScreen = () => {
 
@@ -12,6 +13,9 @@ export const MainScreen = () => {
   const [keyword, setKeyword] = useState('')
   const [region, setRegion] = useState('')
   const [error, setError] = useState('')
+
+  let theme = useSelector(state => state.theme.theme)
+  const classTheme = theme === 'light' ? 'light-mode' : 'dark-mode'
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -23,6 +27,8 @@ export const MainScreen = () => {
     setRegion(e.target.value)
     console.log(e.target.value)
   }
+
+  // const check = localStorage.getItem('theme')
 
   let endPoint = !keyword ?
     'https://restcountries.com/v2/all' :
@@ -38,10 +44,12 @@ export const MainScreen = () => {
   }, [endPoint])
 
   return (
-    <main className='main container'>
+    <main className={`main container ${classTheme}`}>
       <div className='main__search flex ai-center'>
         <form onSubmit={handleSubmit} className='main__search__bar' >
-          <span><AiOutlineSearch /></span>
+          <span>
+            <AiOutlineSearch />
+          </span>
           <input className='main__search__bar__input' name='keyword' placeholder='Search for a country...' autoComplete='off' />
         </form>
 
@@ -85,6 +93,6 @@ export const MainScreen = () => {
 
 
 
-    </main>
+    </main >
   )
 }

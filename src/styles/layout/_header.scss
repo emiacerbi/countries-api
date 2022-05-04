@@ -1,6 +1,5 @@
 .header {
   padding-block: 1rem;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 
   .container {
     justify-content: space-between;
@@ -8,10 +7,11 @@
   }
 
   &__title {
-    color: black;
+    color: inherit;
     font-size: 1.5rem;
     font-weight: 800;
     text-decoration: none;
+    cursor: pointer;
 
     &:hover {
       opacity: .7;

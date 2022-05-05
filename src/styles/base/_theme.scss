@@ -1,16 +1,55 @@
 @use '../base/variables' as *;
 
-.light-mode {
+.header.light-mode,
+.main__search__bar__input.light-mode {
   transition: .3s ease;
-  background-color: $very-light-gray;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  background-color: $white;
   color: $very-dark-blue ;
+
+}
   
+.header.dark-mode,
+.main__search__bar__input.dark-mode {
+  transition: .3s ease;
+  background-color: $dark-blue100;
+  color: $white;
+
+  &::placeholder {
+    color: $white;
+  }
 }
 
-.dark-mode {
+.main.light-mode {
+  transition: .3s ease;
+  background-color: $very-light-gray;
+  color: $very-dark-blue ;
+}
+  
+.main.dark-mode {
   transition: .3s ease;
   background-color: $very-dark-blue200;
-  box-shadow: rgba(252, 252, 252, 0.25) 0px 2px 5px -1px, rgba(255, 255, 255, 0.3) 0px 1px 3px -1px;
   color: $white;
 }
+
+
+
+
+/* Dark mode elements */
+$dark-blue100: hsl(209, 23%, 22%);
+$very-dark-blue100: hsl(207, 26%, 17%);
+$dark-blue200: hsl(209, 23%, 22%);
+
+/* Dark Mode Background */
+$very-dark-blue200: hsl(207, 26%, 17%);
+
+/* Light Mode Text */
+$very-dark-blue: hsl(200, 15%, 8%);
+
+/* Light Mode Input */
+$dark-gray: hsl(0, 0%, 52%);
+
+/* Light mode background */
+$very-light-gray: hsl(0, 0%, 98%);
+
+/* Dark mode Text & Light mode Elements */
+$white: hsl(0, 0%, 100%);

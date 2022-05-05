@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 
-import { RiMoonFill } from "react-icons/ri";
+import { RiMoonFill, RiSunFill } from "react-icons/ri";
 
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
@@ -19,11 +19,17 @@ export const Header = () => {
   const navigate = useNavigate()
   // 
   return (
-    <header className={`header ${classTheme} `} >
+    <header className={`header ${classTheme}`} >
       <div className='container flex ai-center'>
         <a onClick={() => navigate('/')} className='header__title'>Where in the world?</a>
         <p className='header__mode' onClick={() => dispatch(switchTheme())} >
-          <span><RiMoonFill /></span>
+          <span>
+            {
+              theme === 'light' ?
+                <RiMoonFill /> :
+                <RiSunFill />
+            }
+          </span>
           {theme === 'dark' ? 'Light Theme' : 'Dark Theme'}
         </p>
 

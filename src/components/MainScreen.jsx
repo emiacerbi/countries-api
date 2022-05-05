@@ -44,53 +44,56 @@ export const MainScreen = () => {
   }, [endPoint])
 
   return (
-    <main className={`main container ${classTheme}`}>
-      <div className='main__search flex ai-center'>
-        <form onSubmit={handleSubmit} className='main__search__bar' >
-          <span>
-            <AiOutlineSearch />
-          </span>
-          <input className='main__search__bar__input' name='keyword' placeholder='Search for a country...' autoComplete='off' />
-        </form>
+    <main className={`main ${classTheme}`}>
+      <div className='container'>
 
-        <form className='main__search__selection'>
-          <select className='main__search__selection__input' name='region' onChange={handleChange} placeholder='Filter by region:' >
-            <option value=''>Filter by region:</option>
-            <option value='America'>America</option>
-            <option value='Oceania'>Oceania</option>
-            <option value='Asia'>Asia</option>
-            <option value='Europe'>Europe</option>
-            <option value='Africa'>Africa</option>
-            <option value=''>World</option>
-          </select>
-        </form>
-      </div>
+        <div className='main__search flex ai-center'>
+          <form onSubmit={handleSubmit} className='main__search__bar' >
+            <span>
+              <AiOutlineSearch />
+            </span>
+            <input className={`main__search__bar__input ${classTheme}`} name='keyword' placeholder='Search for a country...' autoComplete='off' />
+          </form>
 
-      {
-        isLoading && <Loading />
-      }
-      <section className='grid main__grid' >
+          <form className='main__search__selection'>
+            <select className='main__search__selection__input' name='region' onChange={handleChange} placeholder='Filter by region:' >
+              <option value=''>Filter by region:</option>
+              <option value='America'>America</option>
+              <option value='Oceania'>Oceania</option>
+              <option value='Asia'>Asia</option>
+              <option value='Europe'>Europe</option>
+              <option value='Africa'>Africa</option>
+              <option value=''>World</option>
+            </select>
+          </form>
+        </div>
+
         {
-          data
-            .filter(country => country.region.includes(region))
-            .map(country => {
-              return (
-                <Link className='main__grid__card' key={country.alpha2Code} to={`/${country.name.toLowerCase()}`} >
-                  <img className='main__grid__card__img' src={country.flag} alt='' />
-                  <div className='main__grid__card__wrap'>
-                    <h3>{country.name}</h3>
-                    <p>Population: {country.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</p>
-                    <p>Region: {country.region}</p>
-                    <p>Capital: {country.capital}</p>
-                  </div>
-                </Link>
-              )
-            })
-            .slice(0, 32)
+          isLoading && <Loading />
         }
+        <section className='grid main__grid' >
+          {
+            data
+              .filter(country => country.region.includes(region))
+              .map(country => {
+                return (
+                  <Link className='main__grid__card' key={country.alpha2Code} to={`/${country.name.toLowerCase()}`} >
+                    <img className='main__grid__card__img' src={country.flag} alt='' />
+                    <div className='main__grid__card__wrap'>
+                      <h3>{country.name}</h3>
+                      <p>Population: {country.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</p>
+                      <p>Region: {country.region}</p>
+                      <p>Capital: {country.capital}</p>
+                    </div>
+                  </Link>
+                )
+              })
+              .slice(0, 32)
+          }
 
-      </section>
+        </section>
 
+      </div>
 
 
     </main >

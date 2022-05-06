@@ -55,8 +55,8 @@ export const MainScreen = () => {
             <input className={`main__search__bar__input ${classTheme}`} name='keyword' placeholder='Search for a country...' autoComplete='off' />
           </form>
 
-          <form className='main__search__selection'>
-            <select className='main__search__selection__input' name='region' onChange={handleChange} placeholder='Filter by region:' >
+          <form className={`main__search__selection ${classTheme}`}>
+            <select className={`main__search__selection__input ${classTheme}`} name='region' onChange={handleChange} placeholder='Filter by region:' >
               <option value=''>Filter by region:</option>
               <option value='America'>America</option>
               <option value='Oceania'>Oceania</option>
@@ -77,9 +77,11 @@ export const MainScreen = () => {
                 .filter(country => country.region.includes(region))
                 .map(country => {
                   return (
-                    <Link className='main__grid__card' key={country.alpha2Code} to={`/${country.name.toLowerCase()}`} >
-                      <img className='main__grid__card__img' src={country.flag} alt='' />
-                      <div className='main__grid__card__wrap'>
+                    <Link className={`main__grid__card `} key={country.alpha2Code} to={`/${country.name.toLowerCase()}`} >
+                      <div className=''>
+                        <img className='main__grid__card__img' src={country.flag} alt='' />
+                      </div>
+                      <div className={`main__grid__card__wrap ${classTheme}`}>
                         <h3>{country.name}</h3>
                         <p>Population: {country.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</p>
                         <p>Region: {country.region}</p>
@@ -90,7 +92,6 @@ export const MainScreen = () => {
                 })
                 .slice(0, 32)
           }
-
         </section>
 
       </div>

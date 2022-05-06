@@ -1,15 +1,12 @@
 @use '../base/variables' as *;
 
-.header.light-mode,
-.main__search__bar__input.light-mode {
+.light-mode {
   transition: .3s ease;
   background-color: $white;
   color: $very-dark-blue ;
-
 }
   
-.header.dark-mode,
-.main__search__bar__input.dark-mode {
+.dark-mode {
   transition: .3s ease;
   background-color: $dark-blue100;
   color: $white;
@@ -31,25 +28,8 @@
   color: $white;
 }
 
-
-
-
-/* Dark mode elements */
-$dark-blue100: hsl(209, 23%, 22%);
-$very-dark-blue100: hsl(207, 26%, 17%);
-$dark-blue200: hsl(209, 23%, 22%);
-
-/* Dark Mode Background */
-$very-dark-blue200: hsl(207, 26%, 17%);
-
-/* Light Mode Text */
-$very-dark-blue: hsl(200, 15%, 8%);
-
-/* Light Mode Input */
-$dark-gray: hsl(0, 0%, 52%);
-
-/* Light mode background */
-$very-light-gray: hsl(0, 0%, 98%);
-
-/* Dark mode Text & Light mode Elements */
-$white: hsl(0, 0%, 100%);
+.dark-mode-secondary {
+  transition: .3s ease;
+  background-color: $very-dark-blue200;
+  color: $white;
+}

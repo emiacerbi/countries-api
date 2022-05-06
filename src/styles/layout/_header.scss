@@ -1,3 +1,5 @@
+@use '../base/mixins' as *;
+
 .header {
   position: fixed;
   z-index: 100;
@@ -10,8 +12,14 @@
     0px 1px 5px 0px hsla(0,0%,0%,0.2);
 
   .container {
+    flex-direction: column;
     justify-content: space-between;
+    gap: .5rem;
     margin: 0 auto;
+
+    @include mq('phone-wide') {
+      flex-direction: row;
+    }
   }
 
   &__title {

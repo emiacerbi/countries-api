@@ -5,8 +5,10 @@
   
   flex: 1;
   transform: translate(-50%, -50%);
-
+  color: pink;
+  
   &__text {
     grid-column: span 2;
+    font-size: 2rem;
   }
 }

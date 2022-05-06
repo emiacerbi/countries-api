@@ -49,7 +49,7 @@ export const DetailScreen = () => {
                 <div className={`container `}>
                   <button className={`detail__button ${classThemePrimary}`} onClick={() => navigate('/')}><BsArrowLeft /> Back</button>
                   <div className='detail__flag' key={country.alpha2Code}>
-                    <img src={country.flag} alt={country.name} />
+                    <img src={country.flags.svg} alt={country.name} />
                   </div>
                   <div className='detail__data'>
                     <h2 className='detail__data__title'>{country.name}</h2>
@@ -81,7 +81,7 @@ export const DetailScreen = () => {
                       </p>
 
                     </div>
-                    <p className='detail__data__subtitle'>Border countries:
+                    <p className='detail__data__borders'>Border countries:
                       {
                         country.borders ?
                           country.borders

@@ -90,7 +90,7 @@ export const MainScreen = () => {
                     </Link>
                   )
                 })
-                .slice(0, 32)
+                .slice(1, 33)
           }
         </section>
 

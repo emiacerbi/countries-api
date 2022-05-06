@@ -63,8 +63,11 @@
     row-gap: 1.5rem;
 
     &__title {
-      grid-column: span 1;
       margin-top: 1rem;
+      
+      @include mq('tablet') {
+        grid-column: span 2;
+      }
     }
 
     &__subtitle {
@@ -77,6 +80,10 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
+      
+      @include mq('tablet') {
+        grid-column: span 2;
+      }
 
       .border {
         margin-left: .5rem;
@@ -85,7 +92,6 @@
           0px 1px 1px 0px hsla(0,0%,0%,0.14), 
           0px 2px 1px -1px hsla(0,0%,0%,0.12), 
           0px 1px 3px 0px hsla(0,0%,0%,0.2);
-  
       }
     }
     

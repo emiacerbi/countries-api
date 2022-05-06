@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { SpinnerCircularFixed } from 'spinners-react'
 
 export const Loading = () => {
 
@@ -8,7 +9,7 @@ export const Loading = () => {
 
   return (
     <div className={`loading container `}>
-      <h1 className='loading__text'>Loading please wait...</h1>
+      <SpinnerCircularFixed className='loading__spinner' size={100} thickness={100} speed={150} color="rgba(57, 121, 172, 0.51)" secondaryColor="rgba(172, 57, 57, 0.11)" />
     </div>
   )
 }

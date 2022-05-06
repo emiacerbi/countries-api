@@ -21,7 +21,7 @@ export const Header = () => {
   return (
     <header className={`header ${classTheme}`} >
       <div className='container flex ai-center'>
-        <a onClick={() => navigate('/')} className='header__title'>Where in the world?</a>
+        <button onClick={() => navigate('/')} className='header__title'>Where in the world?</button>
         <span className='header__mode' onClick={() => dispatch(switchTheme())} >
           {
             theme === 'light' ?

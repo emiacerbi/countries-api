@@ -23,6 +23,8 @@
   }
 
   &__title {
+    border: none;
+    background-color: inherit;
     color: inherit;
     font-size: 1.5rem;
     font-weight: 800;

@@ -35,8 +35,6 @@ export const DetailScreen = () => {
       .catch(err => console.log(err))
   }, [endPoint])
 
-  console.log(data)
-
   return (
     <div className={`detail ${classTheme}`}>
 

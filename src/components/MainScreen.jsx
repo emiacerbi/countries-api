@@ -20,12 +20,12 @@ export const MainScreen = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     setKeyword(e.target.keyword.value)
+    console.log(keyword)
     e.target.keyword.value = ""
   }
 
   const handleChange = (e) => {
     setRegion(e.target.value)
-    console.log(e.target.value)
   }
 
   // const check = localStorage.getItem('theme')
@@ -90,7 +90,7 @@ export const MainScreen = () => {
                     </Link>
                   )
                 })
-                .slice(1, 33)
+                .slice(0, 32)
           }
         </section>
 

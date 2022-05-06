@@ -1,6 +1,8 @@
 .header {
-  position: sticky;
-  padding-block: 1rem;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  padding-block: 1.25rem;
 
   box-shadow:
     0px 2px 2px 0px hsla(0,0%,0%,0.14), 
@@ -27,13 +29,19 @@
   &__mode {
     display: flex;
     align-items: center;
-    gap: .5rem;
+    transition: opacity .2s ease;
     font-weight: 600;
     cursor: pointer;
+    gap: .5rem;
 
+    &:hover {
+      opacity: .7;
+    }
+    
     span {
       display: flex;
       font-size: 1.125rem;
+      
     }
   }
 }

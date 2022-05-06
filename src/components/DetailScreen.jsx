@@ -24,28 +24,55 @@ export const DetailScreen = () => {
       .catch(err => console.log(err))
   }, [endPoint])
 
+  console.log(data)
+
   return (
-    <div className='container'>
-      {
+    <div className='detail'>
+      {/* {
         isLoading && <Loading />
-      }
-      {
-        data
-          .map(country => {
-            return (
-              <div className='main__grid__card' key={country.alpha2Code} to={`/${country.name.toLowerCase()}`} >
-                <img className='main__grid__card__img' src={country.flag} alt='' />
-                <div className='main__grid__card__wrap'>
-                  <h3>{country.name}</h3>
-                  <p>Population: {country.population}</p>
-                  <p>Region: {country.region}</p>
-                  <p>Capital: {country.capital}</p>
-                  <button onClick={() => navigate('/')} >Go back</button>
-                </div>
-              </div>
-            )
-          })
-      }
+      } */}
+      <div className='container'>
+        <button className='detail__button' onClick={() => navigate('/')}>Go back</button>
+        {
+          data
+            .map(country => {
+              return (
+                <>
+                  <div className='detail__flag' key={country.alpha2Code}>
+                    <img src={country.flag} alt={country.name} />
+                  </div>
+                  <div className='detail__data'>
+                    <h2>{country.name}</h2>
+                    <p className='detail__data__subtitle'>Native Name: <span>{country.nativeName}</span></p>
+                    <p className='detail__data__subtitle'>Population: </p><span> {country.population} </span>
+                    <p className='detail__data__subtitle'>Region: </p><span> {country.region} </span>
+                    <p className='detail__data__subtitle'>Sub Region: </p><span> {country.subregion} </span>
+                    <p className='detail__data__subtitle'>Capital: </p><span> {country.capital} </span>
+                    <p className='detail__data__subtitle'>Top Level Domain: </p><span> {country.topLevelDomain}</span>
+                    <p className='detail__data__subtitle'>Currencies </p>
+                    {
+                      country.currencies
+                        .map(currency => {
+                          return <span key={currency.name}>{currency.name}</span>
+                        })
+                    }
+
+                    <p>Languages: </p>
+                    {
+                      country.languages
+                        .map((language, index) => {
+                          return <span key={language.name}>{index ? ', ' : ''} {language.name}</span>
+                        })
+                    }
+
+                  </div>
+                </>
+              )
+            })
+        }
+      </div>
+
     </div>
   )
 }
+

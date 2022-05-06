@@ -68,27 +68,27 @@ export const MainScreen = () => {
           </form>
         </div>
 
-        {
-          isLoading && <Loading />
-        }
+
         <section className='grid main__grid' >
           {
-            data
-              .filter(country => country.region.includes(region))
-              .map(country => {
-                return (
-                  <Link className='main__grid__card' key={country.alpha2Code} to={`/${country.name.toLowerCase()}`} >
-                    <img className='main__grid__card__img' src={country.flag} alt='' />
-                    <div className='main__grid__card__wrap'>
-                      <h3>{country.name}</h3>
-                      <p>Population: {country.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</p>
-                      <p>Region: {country.region}</p>
-                      <p>Capital: {country.capital}</p>
-                    </div>
-                  </Link>
-                )
-              })
-              .slice(0, 32)
+            isLoading ?
+              <Loading /> :
+              data
+                .filter(country => country.region.includes(region))
+                .map(country => {
+                  return (
+                    <Link className='main__grid__card' key={country.alpha2Code} to={`/${country.name.toLowerCase()}`} >
+                      <img className='main__grid__card__img' src={country.flag} alt='' />
+                      <div className='main__grid__card__wrap'>
+                        <h3>{country.name}</h3>
+                        <p>Population: {country.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</p>
+                        <p>Region: {country.region}</p>
+                        <p>Capital: {country.capital}</p>
+                      </div>
+                    </Link>
+                  )
+                })
+                .slice(0, 32)
           }
 
         </section>

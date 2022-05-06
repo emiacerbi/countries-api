@@ -1,0 +1,35 @@
+.detail {
+  
+  padding-top: 8rem;
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    margin: 0 auto;
+    gap: 1rem;
+    column-gap: 8rem;
+  }
+
+  &__button {
+    grid-column: span 2;
+    width: 100px;
+  }
+
+  &__flag {
+
+  }
+
+  &__data {
+
+    &__subtitle {
+      display: inline;
+      font-weight: 600;
+    }
+
+    span {
+      font-weight: 400;
+    }
+  }
+
+}

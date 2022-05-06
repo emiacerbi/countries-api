@@ -1,7 +1,8 @@
 .main {
-
+  min-height: 100vh;
   margin: 0 auto;
-  padding-block: 2rem;
+  padding-top: 5rem;
+
 
   .container {
     margin: 0 auto;
@@ -9,7 +10,7 @@
 
   &__search {
     justify-content: space-between;
-    padding-block: 1rem;
+    margin-top: 2rem;
 
     &__bar {
 
@@ -43,7 +44,6 @@
         top: 58%;
         left: 20px;
         transform: translateY(-50%);
-        color: gray;
         font-size: 1.125rem;
       }
     }

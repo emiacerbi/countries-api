@@ -22,16 +22,14 @@ export const Header = () => {
     <header className={`header ${classTheme}`} >
       <div className='container flex ai-center'>
         <a onClick={() => navigate('/')} className='header__title'>Where in the world?</a>
-        <p className='header__mode' onClick={() => dispatch(switchTheme())} >
-          <span>
-            {
-              theme === 'light' ?
-                <RiMoonFill /> :
-                <RiSunFill />
-            }
-          </span>
-          {theme === 'dark' ? 'Light Theme' : 'Dark Theme'}
-        </p>
+        <span className='header__mode' onClick={() => dispatch(switchTheme())} >
+          {
+            theme === 'light' ?
+              <RiMoonFill /> :
+              <RiSunFill />
+          }
+          {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
+        </span>
 
       </div>
     </header>

@@ -132,6 +132,14 @@
         padding: 2rem 1rem;
 
       }
+
+      &__title {
+        font-weight: 600;
+
+        span {
+          font-weight: 300;
+        }
+      }
     }
   }
 }

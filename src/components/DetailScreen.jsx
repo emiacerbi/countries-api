@@ -27,10 +27,8 @@ export const DetailScreen = () => {
   useEffect(() => {
     axios.get(endPoint)
       .then(response => {
-        setTimeout(() => {
-          setData(response.data)
-          setIsLoading(false)
-        }, 1000);
+        setData(response.data)
+        setIsLoading(false)
       })
       .catch(err => console.log(err))
   }, [endPoint])
@@ -44,9 +42,9 @@ export const DetailScreen = () => {
           data
             .map(country => {
               return (
-                <div className={`container `}>
+                <div className={`container `} key={country.alpha2Code}>
                   <button className={`detail__button ${classThemePrimary}`} onClick={() => navigate('/')}><BsArrowLeft /> Back</button>
-                  <div className='detail__flag' key={country.alpha2Code}>
+                  <div className='detail__flag' >
                     <img src={country.flags.svg} alt={country.name} />
                   </div>
                   <div className='detail__data'>

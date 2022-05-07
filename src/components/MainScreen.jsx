@@ -20,15 +20,17 @@ export const MainScreen = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     setKeyword(e.target.keyword.value)
-    console.log(keyword)
+    if (!e.target.keyword.value) {
+      alert('No empty strings please')
+    }
+
+
     e.target.keyword.value = ""
   }
 
   const handleChange = (e) => {
     setRegion(e.target.value)
   }
-
-  // const check = localStorage.getItem('theme')
 
   let endPoint = !keyword ?
     'https://restcountries.com/v2/all' :
@@ -40,7 +42,10 @@ export const MainScreen = () => {
         setData(response.data)
         setIsLoading(false)
       })
-      .catch(err => console.log(err))
+      .catch(err => {
+        alert('No country found')
+      })
+
   }, [endPoint])
 
   return (
@@ -83,9 +88,9 @@ export const MainScreen = () => {
                       </div>
                       <div className={`main__grid__card__wrap ${classTheme}`}>
                         <h3>{country.name}</h3>
-                        <p>Population: {country.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</p>
-                        <p>Region: {country.region}</p>
-                        <p>Capital: {country.capital}</p>
+                        <p className='main__grid__card__title'>Population: <span>{country.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</span></p>
+                        <p className='main__grid__card__title'>Region: <span>{country.region}</span></p>
+                        <p className='main__grid__card__title'>Capital: <span>{country.capital}</span></p>
                       </div>
                     </Link>
                   )

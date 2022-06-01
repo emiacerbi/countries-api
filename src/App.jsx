@@ -1,11 +1,10 @@
+import React from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { DetailScreen } from './components/DetailScreen'
 import { Header } from './components/Header'
-import { Loading } from './components/Loading'
 import { MainScreen } from './components/MainScreen'
 
-function App() {
-
+function App () {
   return (
     <>
       <Header />

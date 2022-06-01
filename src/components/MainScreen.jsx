@@ -1,20 +1,18 @@
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import { AiOutlineSearch } from "react-icons/ai";
-import { Loading } from './Loading';
-import { useSelector } from 'react-redux';
+import { AiOutlineSearch } from 'react-icons/ai'
+import { Loading } from './Loading'
+import { useSelector } from 'react-redux'
 
 export const MainScreen = () => {
-
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [keyword, setKeyword] = useState('')
   const [region, setRegion] = useState('')
-  const [error, setError] = useState('')
 
-  let theme = useSelector(state => state.theme.theme)
+  const theme = useSelector(state => state.theme.theme)
   const classTheme = theme === 'light' ? 'light-mode' : 'dark-mode'
 
   const handleSubmit = (e) => {
@@ -24,17 +22,16 @@ export const MainScreen = () => {
       alert('No empty strings please')
     }
 
-
-    e.target.keyword.value = ""
+    e.target.keyword.value = ''
   }
 
   const handleChange = (e) => {
     setRegion(e.target.value)
   }
 
-  let endPoint = !keyword ?
-    'https://restcountries.com/v2/all' :
-    `https://restcountries.com/v2/name/${keyword}`
+  const endPoint = !keyword
+    ? 'https://restcountries.com/v2/all'
+    : `https://restcountries.com/v2/name/${keyword}`
 
   useEffect(() => {
     axios.get(endPoint)
@@ -43,9 +40,9 @@ export const MainScreen = () => {
         setIsLoading(false)
       })
       .catch(err => {
+        console.log(err)
         alert('No country found')
       })
-
   }, [endPoint])
 
   return (
@@ -73,16 +70,15 @@ export const MainScreen = () => {
           </form>
         </div>
 
-
         <section className='grid main__grid' >
           {
-            isLoading ?
-              <Loading /> :
-              data
+            isLoading
+              ? <Loading />
+              : data
                 .filter(country => country.region.includes(region))
                 .map(country => {
                   return (
-                    <Link className={`main__grid__card `} key={country.alpha2Code} to={`/${country.name.toLowerCase()}`} >
+                    <Link className={'main__grid__card '} key={country.alpha2Code} to={`/${country.name.toLowerCase()}`} >
                       <div className=''>
                         <img className='main__grid__card__img' src={country.flag} alt='' />
                       </div>
@@ -100,7 +96,6 @@ export const MainScreen = () => {
         </section>
 
       </div>
-
 
     </main >
   )

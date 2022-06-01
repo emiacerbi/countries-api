@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-let initialState = {
+const initialState = {
   theme: localStorage.getItem('theme') || 'light'
-};
+}
 
 export const themeSlice = createSlice({
   // Name equivale al Type
@@ -10,11 +10,11 @@ export const themeSlice = createSlice({
   initialState,
   reducers: {
     switchTheme: (state) => {
-      state.theme === 'dark' ?
-        state.theme = 'light' :
-        state.theme = 'dark'
+      state.theme === 'dark'
+        ? state.theme = 'light'
+        : state.theme = 'dark'
     }
-  },
+  }
 })
 
 // Action creators are generated for each case reducer function

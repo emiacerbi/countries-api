@@ -1,8 +1,13 @@
+import FilterSection from './components/FiltersSection'
+import Header from './components/Header'
+
 function App () {
   return (
-    <div className="text-red-300">
+    <>
+      <Header />
+      <FilterSection />
       <h1>Probando</h1>
-    </div>
+    </>
   )
 }
 

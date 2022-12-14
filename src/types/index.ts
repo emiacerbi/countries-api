@@ -12,3 +12,9 @@ export type Country = {
     svg: string
   }
 }
+
+export type Filter = {
+  id: number;
+  name: string;
+  value: string;
+}

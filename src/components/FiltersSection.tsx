@@ -1,39 +1,18 @@
-import { ChangeEvent, useState } from 'react'
+import { ChangeEventHandler, MouseEventHandler } from 'react'
 import { MdSearch } from 'react-icons/md'
+import { Filter } from '../types'
 
-type Filter = {
-    id: number;
-    name: string;
-    value: string;
+type Props = {
+  handleChange: ChangeEventHandler<HTMLInputElement>
+  handleClick: MouseEventHandler<HTMLButtonElement>
+  searchBarFilter: string
+  selectedFilter: Filter
+  handleSelectFilter: Function
+  isDropdownVisible: boolean
+  filters: Filter[]
 }
 
-const filters = [
-  { id: 1, name: 'Filter by region', value: '' },
-  { id: 2, name: 'Africa', value: 'africa' },
-  { id: 3, name: 'America', value: 'america' },
-  { id: 4, name: 'Asia', value: 'asia' },
-  { id: 5, name: 'Europe', value: 'europe' },
-  { id: 6, name: 'Oceania', value: 'oceania' }
-]
-
-function FiltersSection () {
-  const [isDropdownVisible, setIsDropdownVisible] = useState(false)
-  const [selectedFilter, setSelectedFilter] = useState(filters[0])
-  const [searchBarFilter, setSearchBarFilter] = useState('')
-
-  const handleClick = () => {
-    setIsDropdownVisible(!isDropdownVisible)
-  }
-
-  const handleSelectFilter = (filter: Filter) => {
-    setSelectedFilter(filter)
-    setIsDropdownVisible(false)
-  }
-
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setSearchBarFilter(e.target.value)
-  }
-
+function FiltersSection ({ handleChange, searchBarFilter, handleClick, selectedFilter, handleSelectFilter, isDropdownVisible, filters }: Props) {
   const isHidden = isDropdownVisible ? 'block' : 'hidden'
 
   return (

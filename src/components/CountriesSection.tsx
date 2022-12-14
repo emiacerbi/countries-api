@@ -25,7 +25,7 @@ function CountriesSection ({ searchBarFilter, selectedFilter }: Props) {
 
   return (
     <section className="flex-1 bg-neutral-800 py-8">
-      <div className="mx-auto grid max-w-screen-2xl gap-12 px-6">
+      <div className="mx-auto grid max-w-screen-2xl grid-cols-1 items-center gap-12 px-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {
           filteredByRegion
             ?.map((country: Country) => <CountryCard key={country.name.common} country={country} />)

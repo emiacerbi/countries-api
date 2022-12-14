@@ -10,7 +10,9 @@ module.exports = {
         'neutral-800': 'hsl(207, 26%, 17%)',
         'neutral-900': 'hsl(200, 15%, 8%)'
       },
-      fontFamily: "'Nunito Sans', sans-serif"
+      fontFamily: {
+        primary: "'Nunito Sans', sans-serif"
+      }
 
     }
   },

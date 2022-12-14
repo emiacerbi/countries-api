@@ -17,6 +17,8 @@ function CountriesSection ({ searchBarFilter, selectedFilter }: Props) {
   const filteredBySearchBar = data?.filter(country => country.name.common.toLowerCase().includes(searchBarFilter))
   const filteredByRegion = filteredBySearchBar?.filter(country => country.region.toLowerCase().includes(selectedFilter.value))
 
+  console.log(data)
+
   if (isLoading) {
     return (
       <h1>Loading...</h1>

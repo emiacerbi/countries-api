@@ -21,7 +21,7 @@ function FiltersSection ({ handleChange, searchBarFilter, handleClick, selectedF
 
         <div className='relative'>
           <MdSearch className='absolute top-1/2 left-5 -translate-y-1/2 text-2xl text-white' />
-          <input type='text' onChange={handleChange} value={searchBarFilter} placeholder="Search for a country..." className="w-full rounded-md bg-neutral-700 p-3 pl-14 text-neutral-100 placeholder:text-neutral-100 hover:ring-2 hover:ring-neutral-600" />
+          <input type='text' onChange={handleChange} value={searchBarFilter} placeholder="Search for a country..." className="w-full max-w-lg rounded-md bg-neutral-700 p-3 pl-14 text-neutral-100 placeholder:text-neutral-100 hover:ring-2 hover:ring-neutral-600" />
         </div>
 
         <div className='relative'>

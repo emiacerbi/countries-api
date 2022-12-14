@@ -17,7 +17,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" element={<App />} />
-      <Route path=":country" element={<CountryScreen />} />
+      <Route path="/:country" element={<CountryScreen />} />
     </>
 
   )

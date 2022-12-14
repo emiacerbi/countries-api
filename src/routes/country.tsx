@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { useParams, Link, useNavigate } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import Header from '../components/Header'
 import { getCountryByCode } from '../helpers/getCountryByCode'
 
@@ -8,17 +8,10 @@ import { MdWest } from 'react-icons/md'
 function CountryScreen () {
   const { country } = useParams()
 
-  const navigate = useNavigate()
-
-  const { data, isLoading } = useQuery({
-    queryKey: ['country'],
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ['country', country],
     queryFn: () => getCountryByCode(country as string)
   })
-
-  const navigateTo = (code: string) => {
-    navigate('/' + code)
-    location.reload()
-  }
 
   if (isLoading) {
     return (
@@ -30,8 +23,8 @@ function CountryScreen () {
     )
   }
 
-  if (!data) {
-    return <h1>No data rey</h1>
+  if (isError) {
+    return <h1>Something is wrong</h1>
   }
 
   const countryObject = data[0]
@@ -97,7 +90,11 @@ function CountryScreen () {
                   {
                     !countryObject.borders
                       ? ' This country is not near other countries'
-                      : countryObject.borders.map(border => <span onClick={() => navigateTo(border.toLowerCase())} className='cursor-pointer rounded-sm bg-neutral-700 p-2 px-4 shadow-lg hover:bg-neutral-600' key={border}>{border}</span>)
+                      : countryObject.borders.map(border => (
+                        <Link replace to={'/country/' + border.toLowerCase()} className='cursor-pointer rounded-sm bg-neutral-700 p-2 px-4 shadow-lg hover:bg-neutral-600' key={border}>
+                          {border}
+                        </Link>
+                      ))
                   }
                 </p>
               </div>

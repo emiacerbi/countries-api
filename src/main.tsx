@@ -9,17 +9,17 @@ import {
 } from 'react-router-dom'
 import App from './App'
 import './index.css'
-import CountryScreen from './routes/[country]'
+import CountryScreen from './routes/country'
+import ErrorPage from './routes/error-page'
 
 const queryClient = new QueryClient()
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="/" element={<App />} />
-      <Route path="/:country" element={<CountryScreen />} />
+      <Route errorElement={<ErrorPage />} path='/' element={<App />} />
+      <Route path="country/:country" element={<CountryScreen />} errorElement={<ErrorPage />} />
     </>
-
   )
 )
 

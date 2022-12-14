@@ -7,7 +7,7 @@ type Props = {
 
 function CountryCard ({ country }: Props) {
   return (
-    <Link to={'/' + country.cca2.toLowerCase()} className='grid min-h-[432px] justify-self-center overflow-hidden rounded-md bg-neutral-700 text-neutral-100'>
+    <Link replace to={'country/' + country.cca2.toLowerCase()} className='grid min-h-[432px] justify-self-center overflow-hidden rounded-md bg-neutral-700 text-neutral-100'>
       <img className='h-[200px] w-[310px] object-cover' src={country.flags.svg} alt={country.name.common} />
       <div className='grid flex-1 gap-2 px-6 py-8'>
         <h3 className='text-xl font-extrabold'>{country.name.common}</h3>

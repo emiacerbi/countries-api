@@ -29,3 +29,8 @@ export type Filter = {
   name: string;
   value: string;
 }
+
+export type Context = {
+  darkMode: boolean
+  setDarkMode: Function
+}

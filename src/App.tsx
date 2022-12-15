@@ -1,8 +1,9 @@
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useContext, useState } from 'react'
 import CountriesSection from './components/CountriesSection'
 import FilterSection from './components/FiltersSection'
 import Header from './components/Header'
-import { Filter } from './types'
+import { ThemeContext } from './context/ThemeContext'
+import { Context, Filter } from './types'
 
 const filters = [
   { id: 1, name: 'Filter by region', value: '' },
@@ -17,6 +18,7 @@ function App () {
   const [selectedFilter, setSelectedFilter] = useState(filters[0])
   const [searchBarFilter, setSearchBarFilter] = useState('')
   const [isDropdownVisible, setIsDropdownVisible] = useState(false)
+  const { darkMode } = useContext(ThemeContext) as Context
 
   const handleSelectFilter = (filter: Filter) => {
     setSelectedFilter(filter)
@@ -31,8 +33,12 @@ function App () {
     setIsDropdownVisible(!isDropdownVisible)
   }
 
+  const isDark = darkMode ? 'dark' : ''
+
+  console.log(darkMode)
+
   return (
-    <div className='font-primary flex min-h-screen flex-col'>
+    <div className={`${isDark} font-primary flex min-h-screen flex-col`}>
       <Header />
       <FilterSection
         handleChange={handleChange}

@@ -4,9 +4,15 @@ import Header from '../components/Header'
 import { getCountryByCode } from '../helpers/getCountryByCode'
 
 import { MdWest } from 'react-icons/md'
+import { useContext } from 'react'
+import { ThemeContext } from '../context/ThemeContext'
+import { Context } from '../types'
 
 function CountryScreen () {
   const { country } = useParams()
+  const { darkMode } = useContext(ThemeContext) as Context
+
+  const isDark = darkMode ? 'dark' : ''
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ['country', country],
@@ -15,10 +21,8 @@ function CountryScreen () {
 
   if (isLoading) {
     return (
-      <div className='flex min-h-screen flex-col'>
+      <div className={`${isDark} flex min-h-screen flex-col`}>
         <Header />
-        <div className='flex-1 bg-neutral-800 text-neutral-100'>
-        </div>
       </div>
     )
   }
@@ -30,11 +34,11 @@ function CountryScreen () {
   const countryObject = data[0]
 
   return (
-    <div className='flex min-h-screen flex-col'>
+    <div className={`${isDark} flex min-h-screen flex-col`}>
       <Header />
-      <section className='flex-1 bg-neutral-800 text-neutral-100'>
+      <section className='flex-1 bg-neutral-100 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100'>
         <div className='mx-auto max-w-screen-2xl px-6 py-10'>
-          <Link to='/' className='flex max-w-[120px] items-center gap-3 rounded-sm bg-neutral-700 py-3 px-6 shadow-md ' >
+          <Link to='/' className='flex max-w-[120px] items-center gap-3 rounded-sm bg-neutral-100 py-3 px-6 shadow-md dark:bg-neutral-700 ' >
             <MdWest />
               Back
           </Link>
@@ -91,7 +95,7 @@ function CountryScreen () {
                     !countryObject.borders
                       ? ' This country is not near other countries'
                       : countryObject.borders.map(border => (
-                        <Link replace to={'/country/' + border.toLowerCase()} className='cursor-pointer rounded-sm bg-neutral-700 p-2 px-4 shadow-lg hover:bg-neutral-600' key={border}>
+                        <Link replace to={'/country/' + border.toLowerCase()} className='cursor-pointer rounded-sm p-2 px-4 shadow-lg hover:bg-neutral-200 dark:bg-neutral-700 dark:hover:bg-neutral-600' key={border}>
                           {border}
                         </Link>
                       ))

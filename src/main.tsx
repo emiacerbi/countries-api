@@ -8,6 +8,7 @@ import {
   RouterProvider
 } from 'react-router-dom'
 import App from './App'
+import { ThemeProvider } from './context/ThemeContext'
 import './index.css'
 import CountryScreen from './routes/country'
 import ErrorPage from './routes/error-page'
@@ -26,7 +27,9 @@ const router = createBrowserRouter(
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
+      <ThemeProvider>
+        <RouterProvider router={router} />
+      </ThemeProvider>
     </QueryClientProvider>
   </React.StrictMode>
 )
